@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="../assets/icons/css/fontello.css">
+    <link rel="stylesheet" href="./fonts/Poppins-Regular.ttf">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins-Regular.ttf', sans-serif;
+        }
+
+        .socialMedia {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: 0.5s;
+
+        }
+
+        .sci {
+            position: relative;
+            display: flex;
+        }
+
+        @media (max-width:760px) {
+            .sci {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+
+            section .sci li a {
+                width: 80px;
+                height: 80px;
+                font-size: 3em;
+            }
+
+            section .sci li:hover:before {
+                opacity: 0.3;
+                transform: translate(-50%, calc(-50%));
+            }
+
+
+        }
+
+        .sci li {
+            list-style: none;
+        }
+
+        .sci li::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% + 120px));
+            font-size: 14vw;
+            pointer-events: none;
+            font-weight: 700;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .sci li:hover:before {
+            opacity: 0.2;
+            transform: translate(-50%, calc(-50% + 150px));
+        }
+
+        .sci li a {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            background: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            border-radius: 10px;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 4em;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.2);
+            transition: background 0.25s;
+        }
+
+        .sci li a:hover.facebook {
+            background: #1877f2;
+
+        }
+
+        .sci li a:hover.youtube {
+            background: #ff0000;
+
+        }
+
+        .sci li a:hover.twitter {
+            background: #1877f2;
+
+        }
+
+        .sci li a:hover.instagram {
+            background: #ff0000;
+
+        }
+
+        .sci li a:hover.mail {
+            background: #1877f2;
+
+        }
+
+        .sci li a:hover.comment {
+            background: #ff0000;
+
+        }
+
+        .sci li a i {
+            transition: 0.25s;
+            pointer-events: none;
+
+        }
+
+        .sci li a:hover i {
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="socialMedia">
+
+        <ul class="sci">
+            <li data-text="facebook" data-color="#1877f2">
+                <a href="#" class="facebook"><i class="icon-facebook"></i></a>
+            </li>
+            <li data-text="youtube" data-color="#ff0000">
+                <a href="#" class="youtube"><i class="icon-youtube-squared"></i></a>
+            </li>
+            <li data-text="twitter" data-color="#1877f2">
+                <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+            </li>
+        </ul>
+
+        <ul class="sci">
+            <li data-text="instagram" data-color="#ff0000">
+                <a href="#" class="instagram"><i class="icon-instagram"></i></a>
+            </li>
+            <li data-text="mail" data-color="#1877f2">
+                <a href="./contact-mail.html" class="mail"><i class="icon-mail"></i></a>
+            </li>
+            <li data-text="comment" data-color="#ff0000">
+                <a href="#" class="comment"><i class="icon-comment"></i></a>
+            </li>
+        </ul>
+
+
+        <!-- <ul class="sci">
+            <li data-text="facebook" data-color="#1877f2">
+                <a href="#" class="facebook"><i class="icon-facebook"></i></a>
+            </li>
+            <li data-text="youtube" data-color="#ff0000">
+                <a href="#" class="youtube"><i class="icon-youtube-squared"></i></a>
+            </li>
+            <li data-text="twitter" data-color="#1877f2">
+                <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+            </li>
+            <li data-text="instagram" data-color="#ff0000">
+                <a href="#" class="instagram"><i class="icon-instagram"></i></a>
+            </li>
+            <li data-text="mail" data-color="#1877f2">
+                <a href="./contact-mail.html" class="mail"><i class="icon-mail"></i></a>
+            </li>
+            <li data-text="comment" data-color="#ff0000">
+                <a href="#" class="comment"><i class="icon-comment"></i></a>
+            </li>
+        </ul> -->
+
+    </section>
+
+    <script src="../assets/vanilla-tilt.min.js"></script>
+
+    <script>
+        VanillaTilt.init(document.querySelector(".sci li a"), {
+            max: 30,
+            speed: 400
+        });
+
+        let list = document.querySelectorAll(".sci li");
+        let bg = document.querySelector(".socialMedia");
+        list.forEach(elements => {
+            elements.addEventListener('mouseenter', function (event) {
+                let color = event.target.getAttribute('data-color');
+                bg.style.backgroundColor = color;
+            })
+            elements.addEventListener('mouseleave', function (event) {
+                bg.style.backgroundColor = '#fff';
+            })
+        })
+    </script>
+</body>
+
+</html>
